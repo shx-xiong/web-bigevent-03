@@ -20,6 +20,9 @@ $(function () {
     //图片预览
     $('#file').on('change', function () {
         var file = this.files[0]
+        if (file === undefined) {
+            layer.msg('请选择图片')
+        }
         var newImgURL = URL.createObjectURL(file)
         $image
             .cropper('destroy')      // 销毁旧的裁剪区域
